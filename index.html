@@ -7,9 +7,65 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
 
+  <div id="root"></div>
+
+  <script type="text/babel">
+    ReactDOM.render((
+      <div>
+        <Person lastName="dcjhks" name="Janetta"  age="15" />
+        <Sum a={5} b={10} />
+        <Sum a={10} b={5} />
+        <Larger a={10} b={5}/>
+        <Larger a={5} b={10}/>
+
+        <a href="#">Hello</a>
+        <link  to="#">Hello</link>
+
+        <ArticleSummary title="This is a sample article" url="#">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque alias quasi optio veniam excepturi molestiae! Recusandae ipsum nostrum inventore beatae? Deserunt commodi autem voluptas suscipit veritatis! Placeat voluptatum perspiciatis eaque.
+          </ArticleSummary>
+
+          <article>
+            <h2>
+              <a href="#"></a>
+              </h2>
+              <p></p>
+            </article>
+      </div>
+    ), document.querySelector('#root'));
+
+
+    function Link(props) {
+      return <a href={props.to}>{props.children}</a>;
+    }
+
+    function Person(props) {
+      return <div>My name is {props.lastName} {props.name}.  I'm {props.age} years old</div>;
+    };
+    
+    function Sum(props) {
+      return <div> {props.a + props.b} </div>;
+    };
+    function Larger(props) {
+      if (props.a > props.b) {
+        return <div>{props.a}</div>
+      }
+      else {
+        return <div>{props.b}</div>
+      }
+    };
+
+    function ArticleSummary(props) {
+      return <article><h2>{props.title} <a href="#">{props.url}</a></h2> <p>{props.children}</p> </article>;
+    };
+
+
+
+  </script>
   
-  <script src=""></script>
 </body>
 </html>
